@@ -20,7 +20,7 @@ jobs:
     - uses: snapcore/action-build@v1
       id: build-snap
       with:
-        path: './xwiki-jetty/stable/'
+        path: './xwiki-jetty/candidate/'
 
     # Make sure the snap is installable
     - run: |
@@ -33,6 +33,6 @@ jobs:
         SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.STORE_LOGIN }}
       with:
         snap: ${{ steps.build-snap.outputs.snap }}
-        release: stable
+        release: candidate
 
 
